@@ -1,1 +1,315 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<title>KJV</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">-->
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/bible1.js"></script>
+<style>
+    body {font-family: "Lato", sans-serif}
+    .mySlides {display: none}
+</style>
+<body onload="startTime();">
+
+<!-- Navbar 
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="https://bible.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Bible</a>
+        <a href="https://egw.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large w3-hide-small">EGW</a>
+        <a href="https://hymns.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Hymns</a>
+
+        <a href="https://stories.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Stories</a>
+        <a href="https://giovanni.saberon.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Videos</a>
+
+        <div class="w3-dropdown-hover w3-hide-small">
+            <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="#" class="w3-bar-item w3-button">Merchandise</a>
+                <a href="#" class="w3-bar-item w3-button">Extras</a>
+                <a href="#" class="w3-bar-item w3-button">Media</a>
+            </div>
+        </div>
+        <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    </div>
+</div>
+-->
+
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) 
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="https://bible.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Bible</a>
+    <a href="https://egw.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">EGW</a>
+    <a href="https://hymns.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Hymns</a>
+    <a href="https://stories.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Stories</a>
+    <a href="https://giovanni.saberon.onecloudapps.net" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Videos</a>
+</div>
+-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Giovanni</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bible<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../bible/">Jump Verse</a></li>
+            <li><a href="../bible.onecloudapps.net/">Topics</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="../egw.onecloudapps.net">EGW</a></li>
+        <li><a href="../hymns.onecloudapps.net">Hymn</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+    <!-- Automatic Slideshow Images -->
+     <div class="mySlides w3-display-container w3-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Shaqi_jrvej.jpg" style="width:100%">
+        <div style="position:absolute;left:20%; right:0%;top:50%;transform:translate(-10%,-50%);-ms-transform:translate(-10%,-50%);">
+
+            <h1 style="font-size:4vw; color:white" id="minuteVerseDisplay"></h1>
+        </div>
+    </div>
+
+    <!-- The Band Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+
+        <!--<h2 class="w3-wide">THE BAND</h2>-->
+        <!--<h1 id = "status"></h1>-->
+        <!--<h1 id="topics"></h1>-->
+        <div id="dateDisplay"></div>
+        <div id="timeDisplay"></div>
+        <!--<div id="minuteVerseDisplay"></div>-->
+        <!--<button onclick="getMinuteVerse()">Get Minute verse</button>-->
+        <br><br>
+        <hr>
+        <h2 id="hostname"></h2>
+        <h2>MEMORISE</h2>
+        <button id="todayChapterbutton" onclick="showTodayChapter()"></button>
+        <div id="todayChapterDisplay"></div>
+        <!--<button onclick="getMinuteVerse()">Get Minute verse</button>-->
+        <hr>
+        <br><br>
+
+        <input type="text" id="searchKeyWord"><button onclick="getSearchResults()">Search</button>
+        <form action="https://ak7ma57dsc.execute-api.ap-southeast-2.amazonaws.com/testget/addtopic" method="get">
+            <span>Topic name: </span><input type="text"  name="topic">
+
+            <input type="submit" value="Add a special topic">
+        </form>
+
+
+        <div id="bookSelection"></div>
+        <div id="chapter"></div>
+        <div>
+            <span>Verse: </span><input type="number" id="verseNumber">
+            <button onclick="getVerse(document.getElementById('verseNumber').value)">get Verse</button>
+        </div>
+
+        <div>
+            <button onclick="getPreviousChapter(document.getElementById('chapterNumber').value)">Previous Chapter</button>
+
+            <button onclick="getNextChapter(document.getElementById('chapterNumber').value)">Next Chapter</button>
+            <button id="hideShowButton" onclick="hide()">hide</button>
+
+        </div>
+
+        <div id="displaySearchResults"></div>
+        <div id="demo"></div>
+
+
+        <br>
+
+        <div id="displayTotalResults"></div>
+
+        <p class="w3-opacity"><i>We love music</i></p>
+        <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="w3-row w3-padding-32">
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+            </div>
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+            </div>
+            <div class="w3-third">
+                <p>Name</p>
+                <img src="/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width:60%">
+            </div>
+        </div>
+    </div>
+
+    <!-- The Tour Section -->
+    <div class="w3-black" id="tour">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center">TOUR DATES</h2>
+            <p class="w3-opacity w3-center"><i>Remember to book your tickets!</i></p><br>
+
+            <ul class="w3-ul w3-border w3-white w3-text-grey">
+                <li class="w3-padding">September <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
+                <li class="w3-padding">October <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
+                <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li>
+            </ul>
+
+            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+                <div class="w3-third w3-margin-bottom">
+                    <img src="/w3images/newyork.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>New York</b></p>
+                        <p class="w3-opacity">Fri 27 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom">
+                    <img src="/w3images/paris.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Paris</b></p>
+                        <p class="w3-opacity">Sat 28 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom">
+                    <img src="/w3images/sanfran.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>San Francisco</b></p>
+                        <p class="w3-opacity">Sun 29 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ticket Modal -->
+    <div id="ticketModal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top w3-card-4">
+            <header class="w3-container w3-teal w3-center w3-padding-32">
+        <span onclick="document.getElementById('ticketModal').style.display='none'"
+              class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+                <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
+            </header>
+            <div class="w3-container">
+                <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p>
+                <input class="w3-input w3-border" type="text" placeholder="How many?">
+                <p><label><i class="fa fa-user"></i> Send To</label></p>
+                <input class="w3-input w3-border" type="text" placeholder="Enter email">
+                <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
+                <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+                <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        <h2 class="w3-wide w3-center">CONTACT</h2>
+        <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
+        <div class="w3-row w3-padding-32">
+            <div class="w3-col m6 w3-large w3-margin-bottom">
+                <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
+                <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+                <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+            </div>
+            <div class="w3-col m6">
+                <form action="/action_page.php" target="_blank">
+                    <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                        <div class="w3-half">
+                            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                        </div>
+                        <div class="w3-half">
+                            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                        </div>
+                    </div>
+                    <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                    <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Page Content -->
+</div>
+
+<!-- Image of location/map -->
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<script>
+
+var hostname = window.location.hostname;
+document.getElementById("hostname").innerHTML = hostname;
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 4000);
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    var modal = document.getElementById('ticketModal');
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<script src="https://sdk.amazonaws.com/js/aws-sdk-2.441.0.min.js"></script>-->
+    <script src="bible.js"></script>
+    <link rel="stylesheet" type="text/css" href="bible.css">
+    <title>King James Bible</title>
+
+</head>
+
+<body onload="startTime();">
+<a href="https://bible.onecloudapps.net">Bible</a>
+<a href="https://egw.onecloudapps.net">EGW</a>
+<a href="https://hymns.onecloudapps.net">Hymns</a>
+
+<h1 id = "status"></h1>
+<h1 id="topics"></h1>
+<div id="dateDisplay"></div>
+<div id="timeDisplay"></div>
+<div id="minuteVerseDisplay"></div>
+<!--<button onclick="getMinuteVerse()">Get Minute verse</button>-->
+<br><br>
+<hr>
+<h2>MEMORISE</h2>
+<button id="todayChapterbutton" onclick="showTodayChapter()"></button>
+<div id="todayChapterDisplay"></div>
+<!--<button onclick="getMinuteVerse()">Get Minute verse</button>-->
+<hr>
+<br><br>
+
+<input type="text" id="searchKeyWord"><button onclick="getSearchResults()">Search</button>
+<form action="https://ak7ma57dsc.execute-api.ap-southeast-2.amazonaws.com/testget/addtopic" method="get">
+    <span>Topic name: </span><input type="text"  name="topic">
+
+    <input type="submit" value="Add a special topic">
+</form>
+
+
+<div id="bookSelection"></div>
+<div id="chapter"></div>
+<div>
+    <span>Verse: </span><input type="number" id="verseNumber">
+    <button onclick="getVerse(document.getElementById('verseNumber').value)">get Verse</button>
+</div>
+
+<div>
+    <button onclick="getPreviousChapter(document.getElementById('chapterNumber').value)">Previous Chapter</button>
+
+    <button onclick="getNextChapter(document.getElementById('chapterNumber').value)">Next Chapter</button>
+    <button id="hideShowButton" onclick="hide()">hide</button>
+
+</div>
+
+<div id="displaySearchResults"></div>
+<div id="demo"></div>
+
+
+<br>
+
+<div id="displayTotalResults"></div>
+
+
+
+
+
+
+
+
+
+
+<!--<input type="text" id="bookNumber" name="bookNumber">-->
+
+
+
+
+
+<!--<button onclick="getBook(document.getElementById('bookNumber').value)">Read a book</button>-->
+
+
+
+<div id="id"></div>
+
+</body>
+
+</html>
