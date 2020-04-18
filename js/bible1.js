@@ -427,10 +427,10 @@ function displaySpecialTopic(total, nodesSearchResults, topicTitle ){
     txt += "<p>" + verse + "</p>";
     txt += "<button onclick='printVerse(\""+verse+"\")'>Print</button>";
     // txt += "<button onclick='printVerse(\""+verse+"\")'>Delete Topic</button>";
-    txt += "<form action=\"https://5bs5eujm0e.execute-api.ap-southeast-2.amazonaws.com/deletetopicstage/deletetopic\" method=\"get\">";
-    txt += "<input hidden type=\"text\"  value=\""+indexofTopic + "\"name=\"topic\">";
-    txt += "<input type=\"submit\" value=\"Delete topic\">";
-    txt += "</form>";
+    //txt += "<form action=\"https://5bs5eujm0e.execute-api.ap-southeast-2.amazonaws.com/deletetopicstage/deletetopic\" method=\"get\">";
+    //txt += "<input hidden type=\"text\"  value=\""+indexofTopic + "\"name=\"topic\">";
+    //txt += "<input type=\"submit\" value=\"Delete topic\">";
+    //txt += "</form>";
 
     return txt;
 }
